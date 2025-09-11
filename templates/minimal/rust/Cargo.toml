@@ -1,0 +1,8 @@
+[package]
+name = "eigenx-tee-rust-app"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+alloy-signer-local = { version = "1.0", features = ["mnemonic"] }
+dotenvy = "0.15"
