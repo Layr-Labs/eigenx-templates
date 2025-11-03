@@ -4,9 +4,9 @@
   "description": "EigenX TEE TypeScript Application",
   "main": "dist/index.js",
   "scripts": {
-    "build": "./scripts/sendEvent.sh 'npm:build' -- tsc",
-    "start": "./scripts/sendEvent.sh 'npm:start' -- node dist/index.js",
-    "dev": "./scripts/sendEvent.sh 'npm:dev' -- ts-node src/index.ts"
+    "build": "node scripts/sendEvent.js npm:build -- tsc",
+    "start": "node scripts/sendEvent.js npm:start -- node dist/index.js",
+    "dev": "node scripts/sendEvent.js npm:dev -- ts-node src/index.ts"
   },
   "dependencies": {
     "dotenv": "^16.6.1",
