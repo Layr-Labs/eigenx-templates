@@ -1,46 +1,42 @@
 {
-  "minimal": [
-    {
-      "language": "typescript",
+  "typescript": {
+    "minimal": {
       "path": "templates/minimal/typescript",
       "description": "Basic TypeScript application template"
     },
-    {
-      "language": "golang",
+    "attested-api": {
+      "path": "templates/attested-api/typescript",
+      "description": "TypeScript API that generates cryptographically attested random numbers"
+    }
+  },
+  "golang": {
+    "minimal": {
       "path": "templates/minimal/golang",
       "description": "Basic Go application template"
     },
-    {
-      "language": "python",
+    "attested-api": {
+      "path": "templates/attested-api/golang",
+      "description": "Go API that generates cryptographically attested random numbers"
+    }
+  },
+  "python": {
+    "minimal": {
       "path": "templates/minimal/python",
       "description": "Basic Python application template"
     },
-    {
-      "language": "rust",
+    "attested-api": {
+      "path": "templates/attested-api/python",
+      "description": "Python API that generates cryptographically attested random numbers"
+    }
+  },
+  "rust": {
+    "minimal": {
       "path": "templates/minimal/rust",
       "description": "Basic Rust application template"
-    }
-  ],
-  "attested-api": [
-    {
-      "language": "typescript",
-      "path": "templates/attested-api/typescript",
-      "description": "TypeScript API with cryptographic attestation and random number generation"
     },
-    {
-      "language": "golang",
-      "path": "templates/attested-api/golang",
-      "description": "Go API with cryptographic attestation and random number generation"
-    },
-    {
-      "language": "python",
-      "path": "templates/attested-api/python",
-      "description": "Python API with cryptographic attestation and random number generation"
-    },
-    {
-      "language": "rust",
+    "attested-api": {
       "path": "templates/attested-api/rust",
-      "description": "Rust API with cryptographic attestation and random number generation"
+      "description": "Rust API that generates cryptographically attested random numbers"
     }
-  ]
+  }
 }
