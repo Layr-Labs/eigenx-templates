@@ -36,6 +36,7 @@ type beaconResponse struct {
 	Signer              string `json:"signer"`
 }
 
+// newSigner derives the application's signing account from the provided mnemonic
 func newSigner(mnemonic string) (*signer, error) {
 	trimmed := strings.TrimSpace(mnemonic)
 	if trimmed == "" {
@@ -61,7 +62,9 @@ func newSigner(mnemonic string) (*signer, error) {
 	return &signer{address: account.Address, privateKey: key}, nil
 }
 
+// buildResponse generates a random number and attests to it using the application's wallet
 func buildResponse(s *signer) (*beaconResponse, error) {
+	// Generate cryptographically secure random number
 	buf := make([]byte, 32)
 	if _, err := rand.Read(buf); err != nil {
 		return nil, fmt.Errorf("entropy: %w", err)
@@ -72,6 +75,8 @@ func buildResponse(s *signer) (*beaconResponse, error) {
 	timestamp := time.Now().UTC().Truncate(time.Millisecond).Format("2006-01-02T15:04:05.000Z")
 	message := fmt.Sprintf("RandomnessBeacon|%s|%s", randomNumber, timestamp)
 	hash := accounts.TextHash([]byte(message))
+
+	// Sign the message using the application's wallet to attest to the random value
 	signature, err := crypto.Sign(hash[:], s.privateKey)
 	if err != nil {
 		return nil, fmt.Errorf("sign: %w", err)

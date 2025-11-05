@@ -18,6 +18,7 @@ if not mnemonic:
     print("MNEMONIC environment variable is not set", file=sys.stderr)
     sys.exit(1)
 
+# Derive the application's signing account from the provided mnemonic
 try:
     Account.enable_unaudited_hdwallet_features()
     ACCOUNT = Account.from_mnemonic(mnemonic, account_path="m/44'/60'/0'/0/0")
@@ -38,11 +39,15 @@ def _current_timestamp() -> str:
 
 @app.get("/random")
 def get_random_entropy():
+    """Generates a random number and attests to it using the application's wallet"""
+    # Generate cryptographically secure random number
     random_bytes = secrets.token_bytes(32)
     random_number = "0x" + random_bytes.hex()
     random_number_decimal = str(int.from_bytes(random_bytes, byteorder="big"))
     timestamp = _current_timestamp()
     message = f"RandomnessBeacon|{random_number}|{timestamp}"
+
+    # Sign the message using the application's wallet to attest to the random value
     signed_message = ACCOUNT.sign_message(encode_defunct(text=message))
 
     return {

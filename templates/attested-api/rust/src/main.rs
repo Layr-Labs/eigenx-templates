@@ -27,7 +27,9 @@ struct BeaconResponse {
     signer: String,
 }
 
+/// Generates a random number and attests to it using the application's wallet
 async fn random_beacon(State(state): State<AppState>) -> impl IntoResponse {
+    // Generate cryptographically secure random number
     let mut entropy = [0u8; 32];
     rand::rngs::OsRng.fill_bytes(&mut entropy);
 
@@ -43,6 +45,7 @@ async fn random_beacon(State(state): State<AppState>) -> impl IntoResponse {
         .to_rfc3339_opts(SecondsFormat::Millis, true);
     let message = format!("RandomnessBeacon|{}|{}", random_number, timestamp);
 
+    // Sign the message using the application's wallet to attest to the random value
     let signature = match state.wallet.sign_message(message.clone()).await {
         Ok(sig) => sig,
         Err(err) => {
@@ -88,6 +91,7 @@ async fn main() {
         std::process::exit(1);
     });
 
+    // Derive the application's signing account from the provided mnemonic
     let wallet = MnemonicBuilder::<English>::default()
         .phrase(mnemonic.trim())
         .derivation_path("m/44'/60'/0'/0/0")

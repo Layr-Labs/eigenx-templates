@@ -14,6 +14,7 @@ async function main() {
     process.exit(1);
   }
 
+  // Derive the application's signing account from the provided mnemonic
   let account;
   try {
     account = mnemonicToAccount(mnemonic);
@@ -24,13 +25,17 @@ async function main() {
 
   const server = Fastify({ logger: true });
 
+  // Endpoint that generates random numbers and attests to them with the application's wallet
   server.get('/random', async () => {
+    // Generate cryptographically secure random number
     const entropy = randomBytes(32);
     const randomNumber = `0x${entropy.toString('hex')}`;
     const randomNumberDecimal = BigInt(randomNumber).toString();
     const timestamp = new Date().toISOString();
     const message = `RandomnessBeacon|${randomNumber}|${timestamp}`;
     const messageHash = hashMessage(message);
+
+    // Sign the message using the application's wallet to attest to the random value
     const signature = await account.signMessage({ message });
 
     return {
