@@ -1,5 +1,5 @@
 {
-  "name": "randomness-beacon-typescript-app",
+  "name": "eigenx-tee-typescript-app",
   "version": "1.0.0",
   "description": "EigenX Randomness Beacon TypeScript Application",
   "main": "dist/index.js",

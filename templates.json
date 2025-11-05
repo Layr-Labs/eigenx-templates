@@ -1,0 +1,46 @@
+{
+  "minimal": [
+    {
+      "language": "typescript",
+      "path": "templates/minimal/typescript",
+      "description": "Basic TypeScript application template"
+    },
+    {
+      "language": "golang",
+      "path": "templates/minimal/golang",
+      "description": "Basic Go application template"
+    },
+    {
+      "language": "python",
+      "path": "templates/minimal/python",
+      "description": "Basic Python application template"
+    },
+    {
+      "language": "rust",
+      "path": "templates/minimal/rust",
+      "description": "Basic Rust application template"
+    }
+  ],
+  "attested-api": [
+    {
+      "language": "typescript",
+      "path": "templates/attested-api/typescript",
+      "description": "TypeScript API with cryptographic attestation and random number generation"
+    },
+    {
+      "language": "golang",
+      "path": "templates/attested-api/golang",
+      "description": "Go API with cryptographic attestation and random number generation"
+    },
+    {
+      "language": "python",
+      "path": "templates/attested-api/python",
+      "description": "Python API with cryptographic attestation and random number generation"
+    },
+    {
+      "language": "rust",
+      "path": "templates/attested-api/rust",
+      "description": "Rust API with cryptographic attestation and random number generation"
+    }
+  ]
+}
