@@ -1,0 +1,42 @@
+{
+  "typescript": {
+    "minimal": {
+      "path": "templates/minimal/typescript",
+      "description": "Basic TypeScript application template"
+    },
+    "attested-api": {
+      "path": "templates/attested-api/typescript",
+      "description": "TypeScript API that generates cryptographically attested random numbers"
+    }
+  },
+  "golang": {
+    "minimal": {
+      "path": "templates/minimal/golang",
+      "description": "Basic Go application template"
+    },
+    "attested-api": {
+      "path": "templates/attested-api/golang",
+      "description": "Go API that generates cryptographically attested random numbers"
+    }
+  },
+  "python": {
+    "minimal": {
+      "path": "templates/minimal/python",
+      "description": "Basic Python application template"
+    },
+    "attested-api": {
+      "path": "templates/attested-api/python",
+      "description": "Python API that generates cryptographically attested random numbers"
+    }
+  },
+  "rust": {
+    "minimal": {
+      "path": "templates/minimal/rust",
+      "description": "Basic Rust application template"
+    },
+    "attested-api": {
+      "path": "templates/attested-api/rust",
+      "description": "Rust API that generates cryptographically attested random numbers"
+    }
+  }
+}

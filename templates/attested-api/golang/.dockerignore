@@ -1,0 +1,9 @@
+bin/
+vendor/
+.git
+.gitignore
+README.md
+.env
+*.test
+*.out
+.DS_Store
