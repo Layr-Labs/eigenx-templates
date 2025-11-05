@@ -2,41 +2,65 @@
   "typescript": {
     "minimal": {
       "path": "templates/minimal/typescript",
-      "description": "Basic TypeScript application template"
+      "description": "Basic TypeScript application template",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "package.json"]
+      }
     },
     "attested-api": {
       "path": "templates/attested-api/typescript",
-      "description": "TypeScript API that generates cryptographically attested random numbers"
+      "description": "TypeScript API that generates cryptographically attested random numbers",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "package.json"]
+      }
     }
   },
   "golang": {
     "minimal": {
       "path": "templates/minimal/golang",
-      "description": "Basic Go application template"
+      "description": "Basic Go application template",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "go.mod"]
+      }
     },
     "attested-api": {
       "path": "templates/attested-api/golang",
-      "description": "Go API that generates cryptographically attested random numbers"
+      "description": "Go API that generates cryptographically attested random numbers",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "go.mod"]
+      }
     }
   },
   "python": {
     "minimal": {
       "path": "templates/minimal/python",
-      "description": "Basic Python application template"
+      "description": "Basic Python application template",
+      "postProcess": {
+        "replaceNameIn": ["README.md"]
+      }
     },
     "attested-api": {
       "path": "templates/attested-api/python",
-      "description": "Python API that generates cryptographically attested random numbers"
+      "description": "Python API that generates cryptographically attested random numbers",
+      "postProcess": {
+        "replaceNameIn": ["README.md"]
+      }
     }
   },
   "rust": {
     "minimal": {
       "path": "templates/minimal/rust",
-      "description": "Basic Rust application template"
+      "description": "Basic Rust application template",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "Cargo.toml", "Dockerfile"]
+      }
     },
     "attested-api": {
       "path": "templates/attested-api/rust",
-      "description": "Rust API that generates cryptographically attested random numbers"
+      "description": "Rust API that generates cryptographically attested random numbers",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "Cargo.toml", "Dockerfile"]
+      }
     }
   }
 }
