@@ -49,7 +49,7 @@ func newSigner(mnemonic string) (*signer, error) {
 	}
 
 	path := hdwallet.MustParseDerivationPath("m/44'/60'/0'/0/0")
-	account, err := wallet.Derive(path, false)
+	account, err := wallet.Derive(path, true)
 	if err != nil {
 		return nil, fmt.Errorf("wallet derive: %w", err)
 	}
