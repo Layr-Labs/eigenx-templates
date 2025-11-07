@@ -49,17 +49,29 @@ func newSigner(mnemonic string) (*signer, error) {
 	}
 
 	path := hdwallet.MustParseDerivationPath("m/44'/60'/0'/0/0")
-	account, err := wallet.Derive(path, false)
+	account, err := wallet.Derive(path, true)
 	if err != nil {
 		return nil, fmt.Errorf("wallet derive: %w", err)
 	}
 
-	key, err := wallet.PrivateKey(account)
+	keyHex, err := wallet.PrivateKeyHex(account)
 	if err != nil {
 		return nil, fmt.Errorf("wallet private key: %w", err)
 	}
 
-	return &signer{address: account.Address, privateKey: key}, nil
+	keyBytes, err := hex.DecodeString(strings.TrimPrefix(keyHex, "0x"))
+	if err != nil {
+		return nil, fmt.Errorf("decode private key: %w", err)
+	}
+
+	gethKey, err := crypto.ToECDSA(keyBytes)
+	if err != nil {
+		return nil, fmt.Errorf("convert private key: %w", err)
+	}
+
+	address := crypto.PubkeyToAddress(gethKey.PublicKey)
+
+	return &signer{address: address, privateKey: gethKey}, nil
 }
 
 // buildResponse generates a random number and attests to it using the application's wallet
