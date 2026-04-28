@@ -1,0 +1,29 @@
+{
+  "name": "ecloud-inference-example",
+  "version": "1.0.0",
+  "description": "EigenX TEE TypeScript Application with ecloud inference",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@layr-labs/ai-gateway-provider": "^1.0.1",
+    "ai": "^6.0.168",
+    "dotenv": "^16.6.1",
+    "viem": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=25.0.0"
+  },
+  "keywords": [
+    "eigenx"
+  ]
+}
