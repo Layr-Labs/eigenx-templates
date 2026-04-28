@@ -13,6 +13,13 @@
       "postProcess": {
         "replaceNameIn": ["README.md", "package.json"]
       }
+    },
+    "inference": {
+      "path": "templates/inference/typescript",
+      "description": "Basic TypeScript application with inference template",
+      "postProcess": {
+        "replaceNameIn": ["README.md", "package.json"]
+      }
     }
   },
   "golang": {
